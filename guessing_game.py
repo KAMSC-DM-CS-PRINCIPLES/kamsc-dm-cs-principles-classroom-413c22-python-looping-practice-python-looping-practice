@@ -1,10 +1,13 @@
-# TODO create guessing game function
-# HINT: Target number should be 15
-# HINT: Return message should be "Congratulations! You guessed it!"
-# HINT: Use input("Enter your guess: ") for user input
-# HINT: Print "Too low! Try again." for low guesses
-# HINT: Print "Too high! Try again." for high guesses
+def guessing_game():
+    answer=15
+    correct=0
+    while (correct=0):
+        skibidiGyat=int(input())
+        if(skibidiGyat==answer):
+            correct=1
+            return "Congratulations! You guessed it!"
+        elif(skibidiGyat<answer):
+            return "Too Low! Guess again."
+        elif(skibidiGyat>answer):
+            return "Too High! Guess again."
 
-if __name__ == "__main__":
-    # create guessing game below this
-    pass
