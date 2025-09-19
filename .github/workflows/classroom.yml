@@ -1,0 +1,49 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test Guessing Game
+      id: test-guessing-game
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test Guessing Game
+        setup-command: pip install -r requirements.txt
+        command: pytest tests/test_guessing_game.py -v
+        timeout: 10
+        max-score: 4
+    - name: Test Multipication Table
+      id: test-multipication-table
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test Multipication Table
+        setup-command: pip install -r requirements.txt
+        command: pytest tests/multiplication_table.py -v
+        timeout: 10
+        max-score: 4
+    - name: Test Reverse String
+      id: test-reverse-string
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test Reverse String
+        setup-command: pip install -r requirements.txt
+        command: pytest tests/test_reverse_string.py -v
+        timeout: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-GUESSING-GAME_RESULTS: "${{steps.test-guessing-game.outputs.result}}"
+        TEST-MULTIPICATION-TABLE_RESULTS: "${{steps.test-multipication-table.outputs.result}}"
+        TEST-REVERSE-STRING_RESULTS: "${{steps.test-reverse-string.outputs.result}}"
+      with:
+        runners: test-guessing-game,test-multipication-table,test-reverse-string
