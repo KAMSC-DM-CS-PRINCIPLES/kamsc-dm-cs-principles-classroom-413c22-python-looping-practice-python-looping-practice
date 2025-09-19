@@ -8,3 +8,10 @@
 if __name__ == "__main__":
     # create reverse string below this
     pass
+
+def reverse_string(n:str):
+    r = ""
+    for char in n:
+        r = r + character
+    return r
+    
