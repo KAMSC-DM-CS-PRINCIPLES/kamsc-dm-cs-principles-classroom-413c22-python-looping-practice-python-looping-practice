@@ -12,6 +12,5 @@ if __name__ == "__main__":
 def reverse_string(n:str):
     r = ""
     for char in n:
-        r = r + character
+        r = char + r
     return r
-    
