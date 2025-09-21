@@ -9,8 +9,8 @@ if __name__ == "__main__":
     # create reverse string below this
     pass
 
-def reverse_string(n:str):
-    r = ""
+def reverse_string(n: str) -> str:
+    r: str = ""
     for char in n:
-        r = char + r
+        r = char + r # prepend each char to reverse the str
     return r
