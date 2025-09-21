@@ -4,9 +4,6 @@
 # HINT: Calculate result as i * j (not i * j + 1)
 # HINT: Use print() to display each multiplication
 
-if __name__ == "__main__":
-    # create multiplication table below this
-    pass
 
 def multiplication_table(n: int) -> None:
     for i in range(n):

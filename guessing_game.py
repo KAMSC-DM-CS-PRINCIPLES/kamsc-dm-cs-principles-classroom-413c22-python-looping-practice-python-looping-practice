@@ -11,6 +11,7 @@ def guessing_game():
         print(f"Too {'high' if x > 15 else 'low'}! Try again.")
     return "Congratulations! You guessed it!"
 
+
 # tests do not ensure that method is implemented
 """ # this method works with current tests
 def guessing_game():
